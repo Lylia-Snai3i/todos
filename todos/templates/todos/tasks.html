@@ -1,0 +1,60 @@
+    {% extends 'todos/base.html'%}
+    {% block content %}
+    <div class="container">
+        <div class="form-card">
+            <h2>Add Task</h2>
+            <form method="POST" action="{% url 'create-task' %}">
+                {% csrf_token %}
+                <input
+                    type="text"
+                    name="title"
+                    placeholder="Enter a new task..."
+                    required
+                >
+                <button type="submit">
+                    Add Task
+                </button>
+            </form>
+        </div>
+        <div class="form-card">
+            <h2>Search Tasks</h2>
+            <form method="POST" action="{% url 'list-tasks' %}">
+                {% csrf_token %}
+                <input
+                    type="text"
+                    name="search"
+                    placeholder="Search tasks..."
+                >
+                <button type="submit">
+                    Search
+                </button>
+            </form>
+        </div>
+        <div class="tasks">
+            {% for task in tasks %}
+                {% if not task.is_done %}
+                    <div class="task-card">
+                        <p class="task-title">
+                            {{ task.title }}
+                        </p>
+                        <div class="task-actions">
+                            <a href="{% url 'edit-task' task.id %}" class="edit-btn">
+                                Edit
+                            </a>
+                            <form method="POST" action="{% url 'delete-task' task.id %}">
+                                {% csrf_token %}
+                                <button type="submit" class="delete-btn">
+                                    Delete
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                {% endif %}
+            {% empty %}
+                <p class="empty-message">
+                    No tasks found.
+                </p>
+            {% endfor %}
+        </div>
+    </div>
+    {%endblock%}

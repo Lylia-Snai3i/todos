@@ -1,0 +1,22 @@
+    {% extends 'todos/base.html'%}
+    {% block content %}
+    <div>
+        <h1>Register</h1>
+    {%for message in messages %}
+        {{message}}
+    {%endfor%}
+    <form action="{% url 'register'%}" method="POST">
+        {% csrf_token %}
+        <label for="username">username</label>
+        <input type="text" name="username" id="username">
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email">
+        <label for="password1">Password</label>
+        <input type="password" name="password1" id="password2">
+        <label for="password2">Confirm Password</label>
+        <input type="password" name="password2" id="password2">
+        <button type="submit">Register</button>
+        <p>Already have account <a href="{% url 'login'%}">Login</a></p>
+    </form>
+    </div>
+        {%endblock%}

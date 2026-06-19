@@ -1,0 +1,183 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f6f9;
+    color: #333;
+}
+
+/* Navbar */
+
+.navbar {
+    background-color: white;
+    padding: 20px 40px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.username {
+    font-weight: 500;
+}
+
+.nav-right form {
+    margin: 0;
+}
+
+/* Main Container */
+
+.container {
+    max-width: 700px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+/* Cards */
+
+.form-card,
+.task-card {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.form-card h2 {
+    margin-bottom: 15px;
+    font-size: 20px;
+}
+
+/* Forms */
+
+.form-card form {
+    display: flex;
+    gap: 10px;
+}
+
+input[type="text"] {
+    flex: 1;
+    padding: 10px 12px;
+
+    border: 1px solid #ccc;
+    border-radius: 6px;
+
+    font-size: 15px;
+}
+
+input[type="text"]:focus {
+    outline: none;
+    border-color: #4a90e2;
+}
+
+/* Buttons */
+
+button,
+.edit-btn {
+    padding: 10px 16px;
+
+    border: none;
+    border-radius: 6px;
+
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+
+    font-size: 14px;
+}
+
+button {
+    background-color: #4a90e2;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+.edit-btn {
+    background-color: #2ecc71;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.edit-btn:hover {
+    opacity: 0.9;
+}
+
+.delete-btn,
+.logout-btn {
+    background-color: #e74c3c;
+}
+
+/* Tasks */
+
+.task-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.task-title {
+    font-size: 16px;
+    word-break: break-word;
+}
+
+.task-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.task-actions form {
+    margin: 0;
+}
+
+/* Empty State */
+
+.empty-message {
+    text-align: center;
+    color: #777;
+    margin-top: 20px;
+}
+
+/* Mobile */
+
+@media (max-width: 600px) {
+    .navbar {
+        padding: 15px 20px;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .form-card form,
+    .task-card {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .task-actions {
+        justify-content: flex-end;
+    }
+}
